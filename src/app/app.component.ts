@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'teste-tecnico';
+  public title = 'teste-tecnico';
+  public currentValue = 0
+
+  public sum(){
+    this.currentValue+=1
+  }
+  public subtraction(){
+    this.currentValue-=1
+  }
 }

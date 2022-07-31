@@ -1,0 +1,17 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+}
+#search-form{
+    padding: 16px 16px 0;
+}
+.example-full-width {
+  width: 100%;
+}
+
+.mat-form-field-underline,
+.ng-tns-c80-1 .ng-star-inserted {
+  width: 0 !important;
+}
