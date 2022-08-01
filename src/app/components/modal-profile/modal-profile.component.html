@@ -2,19 +2,20 @@
 
 <div class="modal_container" *ngIf="showModal">
   <div class="modal_box">
-    <form action="" (submit)=close()>
+    <form action="" (submit)=setUsernameValue($event)>
       <h2 align="center">Digite seu usuário do Twitter</h2>
-
+      
       <mat-form-field  class="example-full-width" appearance="fill">
         <mat-label >Username</mat-label>
         <input type="text" matInput placeholder="Ex. pat@example.com" />
       </mat-form-field>
-
-      <!-- <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="Ex. pat@example.com" />
-      </mat-form-field> -->
+      
+      
       <button align="center" class="btn_submit like_btn btn_color_blue" mat-button>Enviar</button>
+      <span *ngIf="userNotFound" class="error_msg">Usuário não encontrado</span>
+      
+      
     </form>
+  
   </div>
 </div>

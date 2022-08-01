@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-
+import { TwitterService } from 'src/app/services/twitter.service';
+import { setMyDataToStore } from 'src/app/store/app.state';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-modal-profile',
@@ -9,12 +11,47 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 })
 export class ModalProfileComponent implements OnInit {
 
-  constructor() { }
+  public userNotFound: Boolean = false 
 
-  public showModal : Boolean = true
+  @Input()
+  username:String = ''
+
+  setUsernameValue(event: any):void{
+    event.preventDefault()
+    this.username = event.target[0].value
+    if(this.username) this.getTweets(this.username)
+
+  }
+
+  constructor(private twitterService: TwitterService, private store: Store<{app: any}>) { 
+
+  }
+
+  public getTweets(username: String){
+      this.twitterService.getUserAndTwittesByUsername(username).subscribe({
+        next: (res)=>{
+          const userdata = res.userdata
+          const tweets = res.data
+          this.twitterService.myTweets = tweets
+          this.twitterService.hideContent = false
+          localStorage.setItem('@userData', JSON.stringify(userdata))
+          localStorage.setItem('@MyTweets', JSON.stringify(tweets))
+          this.close()
+          const payload = {tweets:tweets , userdata:userdata}
+          this.store.dispatch(setMyDataToStore(payload))
+        },
+        error: (data)=>{
+          this.userNotFound = true
+        }
+      })
+    }
+
+
+  public showModal : Boolean = JSON.parse(localStorage.getItem("@userData") as '') ? false : true
   public close(){
     this.showModal=false
   }
+
   ngOnInit(): void {
   }
 

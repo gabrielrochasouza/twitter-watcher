@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { TwitterService } from 'src/app/services/twitter.service';
+import {map} from 'rxjs/operators'
 
 @Component({
   selector: 'app-header',
@@ -8,17 +10,12 @@ import { TwitterService } from 'src/app/services/twitter.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private twitterService: TwitterService) {
-    this.getter()
+  constructor(private store: Store<{app: any}>) {
   }
+  userData$ = this.store.select('app').pipe(map(e=>e.myUserData))
 
   ngOnInit(): void {
   }
-  getter(){
-    this.twitterService.getUserByUsername().subscribe({
-      next: (data)=>console.log(data),
-      error: (data)=>console.log(data)
-    })
-  }
+
 
 }

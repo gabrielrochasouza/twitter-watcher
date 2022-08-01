@@ -1,5 +1,8 @@
+
 <app-modal-profile></app-modal-profile>
 
-<app-header></app-header>
-
-<app-tweet-box></app-tweet-box>
+<div *ngIf="hideContent===false">
+    <app-header></app-header>
+    
+    <app-tweet-box></app-tweet-box>
+</div>

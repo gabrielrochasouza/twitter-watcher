@@ -9,13 +9,10 @@
   <span>Twitter Watcher</span>
   <span class="example-spacer"></span>
 
-  <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
-    <mat-icon>account_circle</mat-icon>
-  </button>
+
+
+
+
 
   <button
     mat-icon-button
@@ -31,6 +28,16 @@
     aria-label="Example icon-button with share icon"
   >
     <mat-icon>share</mat-icon>
+  </button>
+
+  <button
+    *ngIf="(userData$|async)"
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    <!-- <mat-icon>account_circle</mat-icon> -->
+    <img src={{(userData$|async).profile_image_url}} alt="image profile" class='img_profile'  />
   </button>
 
 </mat-toolbar>

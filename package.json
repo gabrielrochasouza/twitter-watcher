@@ -9,7 +9,7 @@
     "test": "ng test"
   },
   "private": true,
-  "proxy":"http://localhost:3000",
+  "proxy": "http://localhost:3000",
   "dependencies": {
     "@angular/animations": "^14.1.0",
     "@angular/cdk": "^14.1.0",
@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "@ngrx/effects": "^14.0.2",
     "@ngrx/store": "^14.0.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

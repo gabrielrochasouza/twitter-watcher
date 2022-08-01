@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { TweetCardComponent } from './components/tweet-card/tweet-card.component';
 import { TweetBoxComponent } from './components/tweet-box/tweet-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -22,17 +21,21 @@ import { ModalProfileComponent } from './components/modal-profile/modal-profile.
 import {MatDialogModule} from '@angular/material/dialog';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MyTweetsCardsComponent } from './components/my-tweets-cards/my-tweets-cards.component';
+import { SearchedTweetsCardsComponent } from './components/searched-tweets-cards/searched-tweets-cards.component';
+import {reducer} from './store/app.state';
+import { EffectsModule } from '@ngrx/effects'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    TweetCardComponent,
     TweetBoxComponent,
     TweetFormComponent,
     SearchFormComponent,
     ModalProfileComponent,
+    MyTweetsCardsComponent,
+    SearchedTweetsCardsComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,8 +52,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    StoreModule.forRoot({}, {}),
-    HttpClientModule
+    StoreModule.forRoot({app: reducer}),
+    HttpClientModule,
+    // StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([])
 
   ],
   providers: [],
