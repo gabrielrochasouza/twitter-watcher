@@ -20,6 +20,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ModalProfileComponent } from './components/modal-profile/modal-profile.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    StoreModule.forRoot({}, {}),
+    HttpClientModule
 
   ],
   providers: [],

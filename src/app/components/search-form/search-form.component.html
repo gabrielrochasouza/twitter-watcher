@@ -4,7 +4,7 @@
   <form class="example-form">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Pesquise usuário</mat-label>
-      <input type="email" matInput placeholder="Ex. usuario">
+      <input required type="text" matInput placeholder="Ex. usuario">
       <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
         Por favor digite algo!
       </mat-error>
@@ -16,7 +16,7 @@
 
 
     <mat-card-actions align="end">
-      <button class="btn_color_blue" mat-button>Pesquisar</button>
+      <button type="submit" class="btn_color_blue" mat-button>Pesquisar</button>
     </mat-card-actions>
   </form>
 

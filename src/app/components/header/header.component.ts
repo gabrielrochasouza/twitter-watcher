@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TwitterService } from 'src/app/services/twitter.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private twitterService: TwitterService) {
+    this.getter()
+  }
 
   ngOnInit(): void {
+  }
+  getter(){
+    this.twitterService.getUserByUsername().subscribe({
+      next: (data)=>console.log(data),
+      error: (data)=>console.log(data)
+    })
   }
 
 }
