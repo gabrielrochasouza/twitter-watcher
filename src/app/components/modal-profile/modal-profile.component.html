@@ -1,6 +1,6 @@
 
 
-<div class="modal_container" *ngIf="showModal">
+<div class="modal_container" *ngIf="(showModal$ | async)">
   <div class="modal_box">
     <form action="" (submit)=setUsernameValue($event)>
       <h2 align="center">Digite seu usuário do Twitter</h2>

@@ -7,4 +7,44 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
+    position: relative;
+}
+.profile_box{
+    position: absolute;
+    top: 48px;
+    z-index: 100;
+    right: 0;
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: #fff;
+    padding: 4px 15px;
+    border-radius: 8px;
+    color: #000;
+    list-style: none;
+    animation: fadeIn 1s;
+}
+.profile_box::after{
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-left: 1px solid rgba(0,0,0,0.5);
+    border-top: 1px solid rgba(0,0,0,0.5);
+    background-color: #fff;
+    transform: rotate(45deg);
+    position: absolute;
+    top: -6px;
+    right: 12px;
+}
+.profile_box li{
+    text-align: start;
+    color: #111;
+    font-size: 12px;
+    line-height: 20px;
+}
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }

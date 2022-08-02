@@ -1,46 +1,48 @@
 button {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
-.modal_container{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    min-height: 100vh;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    z-index: 200;
-    justify-content: center;
-    background-color: rgba(0,0,0,0.9);
+.modal_container {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 200;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.9);
 }
-.btn_submit{
-    width: 100%;
-    padding: 5px ;
+.btn_submit {
+  width: 100%;
+  padding: 5px;
 }
-.modal_box{
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 40px 40px;
-    width: 96%;
-    max-width: 260px;
-    margin: 0 auto;
+.modal_box {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 40px 40px;
+  width: 96%;
+  max-width: 260px;
+  margin: 0 auto;
+}
+body {
+  overflow: hidden;
+}
+.example-form .mat-tab-labels {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
 
+#username_input {
+  background-color: #e1e1e1;
 }
-body{
-    overflow: hidden;
+.example-full-width {
+  width: 100%;
 }
-.example-form .mat-tab-labels{
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
+.mat-typography {
+  overflow: hidden;
 }
-
-#username_input{
-    background-color: #e1e1e1;
-
-}
-  .example-full-width {
-    width: 100%;
-  }

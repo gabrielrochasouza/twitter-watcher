@@ -2,6 +2,19 @@
     min-width: 150px;
     max-width: 500px;
     width: 100%;
+    display: flex;
+  }
+  @media (max-width:534px) {
+    .example-form.mat-card {
+      padding: 16px 0 16px 4px;
+    }
+  }
+  @media (max-width:400px) {
+    .example-form.mat-card {
+    max-width: 360px !important;
+
+    }
+
   }
   
   .example-full-width {
@@ -9,7 +22,7 @@
   }
   
   td {
-    padding-right: 8px;
+    padding-right: 4px;
   }
   .mat-card-actions{
     margin: 0;
@@ -17,4 +30,10 @@
 textarea.mat-input-element {
     resize: none;
   }
-  
+  .profile_pic{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    cursor: pointer;
+  }

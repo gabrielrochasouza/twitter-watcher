@@ -21,6 +21,10 @@ export const setSearchedDataToStore = createAction(
   '[App] Guarda os meus dados do usuário pesquisado e seus twittes no reducer',
   props<{ tweets: any; userdata: any;}>()
 );
+export const setShowModal = createAction(
+    '[App] Faz aparecer ou sumir o modal',
+    props<{showModal: Boolean}>()
+)
 
 const INITIAL_STATE = {
   myTweets:
@@ -33,6 +37,7 @@ const INITIAL_STATE = {
     {},
   searchedTweets: [],
   searchedUserData: {},
+  showModal: JSON.parse(localStorage.getItem("@userData") as '') ? false : true
 };
 
 export const reducer = createReducer(
@@ -50,6 +55,13 @@ export const reducer = createReducer(
             ...state,
             searchedTweets:payload.tweets,
             searchedUserData:payload.userdata,
+        }
+        return state
+    }),
+    on(setShowModal, (state, payload:any)=>{
+        state ={
+            ...state,
+            showModal: payload.showModal
         }
         return state
     })

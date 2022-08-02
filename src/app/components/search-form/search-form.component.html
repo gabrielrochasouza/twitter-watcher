@@ -1,7 +1,9 @@
 <mat-card id="search-form">
-  <!-- <mat-card-title>Digite o usuário que você deseja monitorar</mat-card-title> -->
 
   <form class="example-form" (submit)="searchUser($event)" >
+
+    <img src={{(userData$|async).profile_image_url}} class="profile_pic" alt="User profile pic"/>
+
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Pesquise usuário</mat-label>
       <input required type="text" matInput placeholder="Ex. usuario">

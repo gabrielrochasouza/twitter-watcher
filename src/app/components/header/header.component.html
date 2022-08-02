@@ -31,13 +31,17 @@
   </button>
 
   <button
-    *ngIf="(userData$|async)"
+    (click)=showProfileBox()
+    *ngIf="(userData$|async).profile_image_url"
     mat-icon-button
     class="example-icon favorite-icon"
     aria-label="Example icon-button with heart icon"
   >
     <!-- <mat-icon>account_circle</mat-icon> -->
     <img src={{(userData$|async).profile_image_url}} alt="image profile" class='img_profile'  />
+      <ul *ngIf="profileBox"  class="profile_box">
+        <li (click)=logout()>Logout</li>
+      </ul>
   </button>
 
 </mat-toolbar>

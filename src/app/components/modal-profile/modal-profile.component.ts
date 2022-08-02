@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { TwitterService } from 'src/app/services/twitter.service';
-import { setMyDataToStore } from 'src/app/store/app.state';
+import { setMyDataToStore, setShowModal } from 'src/app/store/app.state';
 import { Store } from '@ngrx/store';
+import {map} from 'rxjs/operators'
 
 @Component({
   selector: 'app-modal-profile',
@@ -37,6 +38,7 @@ export class ModalProfileComponent implements OnInit {
           localStorage.setItem('@userData', JSON.stringify(userdata))
           localStorage.setItem('@MyTweets', JSON.stringify(tweets))
           this.close()
+          this.userNotFound = false
           const payload = {tweets:tweets , userdata:userdata}
           this.store.dispatch(setMyDataToStore(payload))
         },
@@ -47,9 +49,13 @@ export class ModalProfileComponent implements OnInit {
     }
 
 
-  public showModal : Boolean = JSON.parse(localStorage.getItem("@userData") as '') ? false : true
+  // public showModal : Boolean = JSON.parse(localStorage.getItem("@userData") as '') ? false : true
+
+  showModal$ = this.store.select('app').pipe(map(e=>e.showModal))
+
   public close(){
-    this.showModal=false
+    // this.showModal=false
+    this.store.dispatch(setShowModal({showModal: false}))
   }
 
   ngOnInit(): void {
