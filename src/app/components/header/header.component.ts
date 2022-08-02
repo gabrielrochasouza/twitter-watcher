@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { TwitterService } from 'src/app/services/twitter.service';
 import {map} from 'rxjs/operators'
-import { setMyDataToStore, setSearchedDataToStore, setShowModal } from 'src/app/store/app.state';
+import { IStore, setMyDataToStore, setSearchedDataToStore, setShowModal } from 'src/app/store/app.state';
+import { ITweetData, ITweetsData, IUserData } from 'src/app/models/placeholder.models';
+
+
 
 @Component({
   selector: 'app-header',
@@ -11,7 +13,7 @@ import { setMyDataToStore, setSearchedDataToStore, setShowModal } from 'src/app/
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private store: Store<{app: any}>) {
+  constructor(private store: Store<{app: IStore}>) {
   }
   userData$ = this.store.select('app').pipe(map(e=>e.myUserData))
 
@@ -23,8 +25,8 @@ export class HeaderComponent implements OnInit {
 
   public logout(){
     this.store.dispatch(setShowModal({showModal: true}))
-    this.store.dispatch(setMyDataToStore({tweets:[], userdata: {}}))
-    this.store.dispatch(setSearchedDataToStore({tweets:[], userdata: {}}))
+    this.store.dispatch(setMyDataToStore({tweets:[] as ITweetData[], userdata: {} as IUserData}))
+    this.store.dispatch(setSearchedDataToStore({tweets:[] as ITweetData[], userdata: {} as IUserData}))
     localStorage.clear()
     this.showProfileBox()
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {setSearchedDataToStore} from '../../store/app.state'
+import {IStore, setSearchedDataToStore} from '../../store/app.state'
 import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { TwitterService } from 'src/app/services/twitter.service';
@@ -12,7 +12,7 @@ import {map} from 'rxjs/operators'
 })
 export class SearchFormComponent implements OnInit {
 
-  constructor(private twitterService: TwitterService, private store: Store<{app: any}>) {}
+  constructor(private twitterService: TwitterService, private store: Store<{app: IStore}>) {}
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,

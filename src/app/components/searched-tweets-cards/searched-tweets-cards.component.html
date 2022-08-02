@@ -4,14 +4,13 @@
       <img
         mat-card-image
         class="avatar_img"
-        src={{(userData$|async).profile_image_url}} 
+        src={{(userData$|async)?.profile_image_url}} 
         alt="Photo of a Shiba Inu"
       />
     </div>
-    <mat-card-title> {{ (userData$|async).name }} </mat-card-title>
-    <mat-card-subtitle> {{ (userData$|async).username }} </mat-card-subtitle>
+    <mat-card-title> {{ (userData$|async)?.name }} </mat-card-title>
+    <mat-card-subtitle> {{ (userData$|async)?.username }} </mat-card-subtitle>
   </mat-card-header>
-  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
   <mat-card-content>
     <p>
       {{ tweet.text }}

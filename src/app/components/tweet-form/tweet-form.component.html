@@ -1,7 +1,9 @@
 <mat-card class="example-form">
-  <!-- <mat-card-title>Faça um tweet</mat-card-title> -->
-  <!-- <mat-card-subtitle>Limite de caracteres</mat-card-subtitle> -->
-  <img src={{(userData$|async).profile_image_url}} class="profile_pic" alt="User profile pic"/>
+  <img
+    src="{{ (userData$ | async)?.profile_image_url }}"
+    class="profile_pic"
+    alt="User profile pic"
+  />
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Faça seu twitte</mat-label>
@@ -10,6 +12,4 @@
       <button class="btn_color_blue" mat-button>Twittar</button>
     </mat-card-actions>
   </mat-form-field>
-
-
 </mat-card>

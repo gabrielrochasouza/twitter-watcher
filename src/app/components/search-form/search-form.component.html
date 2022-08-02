@@ -1,26 +1,27 @@
-<mat-card id="search-form" >
-
-  <form class="example-form" (submit)="searchUser($event)" >
-
-    <img src={{(userData$|async).profile_image_url}} class="profile_pic" alt="User profile pic"/>
+<mat-card id="search-form">
+  <form class="example-form" (submit)="searchUser($event)">
+    <img
+      src="{{ (userData$ | async)?.profile_image_url }}"
+      class="profile_pic"
+      alt="User profile pic"
+    />
 
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Pesquise usuário</mat-label>
-      <input required type="text" matInput placeholder="Ex. usuario">
-      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      <input required type="text" matInput placeholder="Ex. usuario" />
+      <mat-error
+        *ngIf="
+          emailFormControl.hasError('email') &&
+          !emailFormControl.hasError('required')
+        "
+      >
         Por favor digite algo!
       </mat-error>
-      <mat-error *ngIf="emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
     </mat-form-field>
-
-
 
     <mat-card-actions align="end">
       <button type="submit" class="btn_color_blue" mat-button>Pesquisar</button>
     </mat-card-actions>
   </form>
   <span *ngIf="userNotFound" class="error_msg">Usuário não encontrado</span>
-
 </mat-card>

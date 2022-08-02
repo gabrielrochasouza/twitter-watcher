@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { ITweetData, ITweetsData, IUserData } from 'src/app/models/placeholder.models';
 import {map} from 'rxjs/operators'
 import { TwitterService } from 'src/app/services/twitter.service';
+import { IStore } from 'src/app/store/app.state';
 
 @Component({
   selector: 'app-searched-tweets-cards',
@@ -11,13 +12,12 @@ import { TwitterService } from 'src/app/services/twitter.service';
 })
 export class SearchedTweetsCardsComponent implements OnInit {
 
-  constructor(private store: Store<{app: any}>) {
+  constructor(private store: Store<{app: IStore}>) {
   }
   userData$ = this.store.select('app').pipe(map(e=>e.searchedUserData))
   tweets$ = this.store.select('app').pipe(map(e=>e.searchedTweets))
-
-
-
+  
+  
   ngOnInit(): void {
   }
 }

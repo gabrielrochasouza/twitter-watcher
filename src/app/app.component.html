@@ -1,7 +1,7 @@
 
 <app-modal-profile></app-modal-profile>
 
-<div *ngIf="hideContent===false">
+<div *ngIf="(showModal$|async)===false">
     <app-header></app-header>
     
     <app-tweet-box></app-tweet-box>

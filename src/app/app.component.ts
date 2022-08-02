@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { TwitterService } from './services/twitter.service';
+import { IStore } from './store/app.state';
+import {map} from 'rxjs/operators'
 
 @Component({
   selector: 'app-root',
@@ -10,7 +13,7 @@ export class AppComponent {
   public title = 'teste-tecnico';
   public currentValue = 0
 
-  constructor(private twitterService: TwitterService){
+  constructor(private twitterService: TwitterService, private store: Store<{app: IStore}>){
     const userData = JSON.parse(localStorage.getItem('@userData') as '') || null
     if(userData){
 
@@ -29,6 +32,9 @@ export class AppComponent {
     }
 
   }
+
+  showModal$ = this.store.select('app').pipe(map(e=>e.showModal))
+
   public hideContent: Boolean = this.twitterService.hideContent
 
   public sum(){
