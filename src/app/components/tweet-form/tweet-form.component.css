@@ -1,39 +1,41 @@
 .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-    display: flex;
+  min-width: 150px;
+  max-width: 500px;
+  width: 95%;
+  display: flex;
+}
+@media (max-width: 534px) {
+  .example-form.mat-card {
+    padding: 16px 0 0px 0px;
   }
-  @media (max-width:534px) {
-    .example-form.mat-card {
-      padding: 16px 0 16px 4px;
-    }
+  .profile_pic {
+    display: none;
   }
-  @media (max-width:400px) {
-    .example-form.mat-card {
+}
+@media (max-width: 400px) {
+  .example-form.mat-card {
     max-width: 360px !important;
+  }
+}
 
-    }
+.example-full-width {
+  width: 100%;
+}
 
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
-  
-  td {
-    padding-right: 4px;
-  }
-  .mat-card-actions{
-    margin: 0;
-  }
+td {
+  padding-right: 4px;
+}
+.mat-card-actions {
+  margin: 0;
+}
 textarea.mat-input-element {
-    resize: none;
-  }
-  .profile_pic{
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    cursor: pointer;
-  }
+  resize: none;
+}
+
+.profile_pic {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  cursor: pointer;
+}
