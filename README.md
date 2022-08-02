@@ -1,5 +1,35 @@
 # TesteTecnico
 
+## <a href='http://twitter-watcher.vercel.app/'>Link to deploy</a>
+
+## About this project
+
+This project was created to see the last 10 twittes from your twitter account and to research an account to see the last 10 twittes of its timeline.
+
+I used the NGRX to manage the state of the components, and Angular Material to create the style of the app.
+
+This app consumes the twitter api to show the information, I also created and deployed in heroku, an external api to use the twitter api, so I avoid beeing blocked by CORS policy. The link of the api deployed in heroku is:
+
+### <a href='https://twitter-req.herokuapp.com/'>
+
+Link of the API in heroku</a>
+
+## Main Libraries used in this Project
+
+<ul>
+<li>Angular Material</li>
+<li>Angular NGRX</li>
+</ul>
+
+## Command to build and run docker container:
+
+You can build and run the sample in a Docker container by using the provided scripts:
+
+<pre>
+docker build -t twitter-watcher .
+docker run --init -p 4200:4200 -it twitter-watcher
+</pre>
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
 ## Development server
